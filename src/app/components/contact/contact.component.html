@@ -1,5 +1,5 @@
 <div class="form-container">
-  <h1>Contact us!</h1>
+  <h1>Contáctenos!</h1>
   <form [formGroup]="contactForm" (ngSubmit)="onSaveForm()">
     <input type="text" formControlName="name" placeholder="Tu nombre">
     <div class="alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
