@@ -1,14 +1,14 @@
 .form-container{
   font: 95% Arial, Helvetica, sans-serif;
   max-width: 500px ;
-  padding: 16px;
-  margin: 10px auto;
+  padding: 10px;
+  margin: 30px auto;
   background: #f7f7f7;
 }
 
 .form-container h1 {
   background: #3368f0;
-  padding: 20px 0;
+  padding: 55px 0;
   font-size: 140%;
   font-weight: 300;
   text-align: center;

@@ -12,12 +12,18 @@ import { LoginComponent } from './components/login/login.component';
 import {AngularFireAuthModule,AngularFireAuth} from '@angular/fire/auth';
 import {AngularFireDatabaseModule,AngularFireDatabase} from '@angular/fire/database';
 import {AngularFireModule} from '@angular/fire';
+import { NavbarComponent } from './navbar/navbar.component';
+import { UploadListComponent } from './uploads/upload-list/upload-list.component';
+import { UploadFormComponent } from './uploads/upload-form/upload-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactComponent,
     LoginComponent,
+    NavbarComponent,
+    UploadListComponent,
+    UploadFormComponent,
   ],
   imports: [
     BrowserModule,
