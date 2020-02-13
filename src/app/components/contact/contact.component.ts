@@ -1,16 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { DataDbService } from  '../../services/data-db.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+// tslint:disable-next-line: import-spacing
+import { DataDbService } from  '../../servicesrespaldo/data-db.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'contactForm',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
 
+  constructor(private dbData: DataDbService) {
+    this.contactForm = this.createFormGroup();
+  }
+    get name() { return this.contactForm.get('name'); }
+    get email() { return this.contactForm.get('email'); }
+    get message() { return this.contactForm.get('message'); }
+
+  // tslint:disable-next-line: max-line-length
   emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+contactForm: FormGroup;
 
 createFormGroup() {
   return new FormGroup({
@@ -20,12 +32,6 @@ createFormGroup() {
     message: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(100)])
   });
 }
-
-contactForm: FormGroup;
-
-  constructor(private dbData: DataDbService) {
-    this.contactForm = this.createFormGroup();
-  }
 
   ngOnInit(): void {
   }
@@ -43,7 +49,4 @@ contactForm: FormGroup;
     }
 
     }
-    get name() { return this.contactForm.get('name'); }
-    get email() { return this.contactForm.get('email'); }
-    get message() { return this.contactForm.get('message'); }
 }

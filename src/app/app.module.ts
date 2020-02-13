@@ -1,20 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
+
+import { ContactComponent } from './components/contact/contact.component';
+
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
+
+import { LoginComponent } from './components/login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ContactComponent } from './components/contact/contact.component';
-import {AngularFirestoreModule} from '@angular/fire/firestore';
-import {environment} from '../environments/environment';
-import { DataDbService } from './services/data-db.service';
-import { LoginComponent } from './components/login/login.component';
+import { storageComponent } from './storage/storage.component';
 
-import {AngularFireAuthModule,AngularFireAuth} from '@angular/fire/auth';
-import {AngularFireDatabaseModule,AngularFireDatabase} from '@angular/fire/database';
-import {AngularFireModule} from '@angular/fire';
-import { NavbarComponent } from './navbar/navbar.component';
-import { UploadListComponent } from './uploads/upload-list/upload-list.component';
-import { UploadFormComponent } from './uploads/upload-form/upload-form.component';
+
+
+
+import { FirebaseStorageService } from './firebase-storage.service';
+
+export const firebaseConfig = {
+  apiKey: 'AIzaSyAeMz4NCkvx0qcNjHVmZXdN5v5TDaqg-3E',
+    authDomain: 'neatdesafio.firebaseapp.com',
+    databaseURL: 'https://neatdesafio.firebaseio.com',
+    storageBucket: 'neatdesafio.appspot.com',
+    messagingSenderId: '444923741955',
+    appId: '1:444923741955:web:9294d5f361fb07555f8b36',
+    measurementId: 'G-1GBLGQ2XRL'
+};
 
 @NgModule({
   declarations: [
@@ -22,16 +36,15 @@ import { UploadFormComponent } from './uploads/upload-form/upload-form.component
     ContactComponent,
     LoginComponent,
     NavbarComponent,
-    UploadListComponent,
-    UploadFormComponent,
+    storageComponent
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,
+    AngularFireModule.initializeApp(firebaseConfig,FirebaseStorageService),
+    AngularFireStorageModule,
     ReactiveFormsModule
   ],
-  providers: [DataDbService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,13 +9,22 @@
 </head>
 <body>
   <app-root></app-root>
-  <script src="/__/firebase/7.8.1/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/7.8.1/firebase-analytics.js"></script>
-
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
 </body>
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyAeMz4NCkvx0qcNjHVmZXdN5v5TDaqg-3E",
+    authDomain: "neatdesafio.firebaseapp.com",
+    databaseURL: "https://neatdesafio.firebaseio.com",
+    projectId: "neatdesafio",
+    storageBucket: "neatdesafio.appspot.com",
+    messagingSenderId: "444923741955",
+    appId: "1:444923741955:web:9294d5f361fb07555f8b36",
+    measurementId: "G-1GBLGQ2XRL"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebase);
+  firebase.analytics();
+</script>
 </html>
